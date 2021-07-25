@@ -28,7 +28,7 @@ pipeline{
           {
              withEnv(["JAVA_HOME=${tool 'JAVA_HOME'}", "PATH=${tool 'JAVA_HOME'}/bin:${env.PATH}"])
              {
-                git 'https://github.com/harilearning1989/spring-rest-crop.git'
+                git 'https://github.com/harilearning1989/spring-rest-crops.git'
                 sh 'java -version'
                 echo "Gradle"
                 sh "${grdlCmd} -v"
