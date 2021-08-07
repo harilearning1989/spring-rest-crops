@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: spring-rest-crop
+spec:
+  selector:
+    app: spring-rest-crop
+  ports:
+    - port: 8081
+      protocol: TCP
+      targetPort: 8081
+  type: NodePort
+#type: ClusterIP

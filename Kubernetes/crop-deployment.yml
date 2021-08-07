@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-rest-crop
+  labels:
+    app: spring-rest-crop
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: spring-rest-crop
+      labels:
+        app: spring-rest-crop
+    spec:
+      containers:
+        - name: spring-rest-crop
+          image: harilearning1989/spring-rest-crop:9
+          imagePullPolicy: IfNotPresent
+      restartPolicy: Always
+  selector:
+    matchLabels:
+      app: spring-rest-crop
