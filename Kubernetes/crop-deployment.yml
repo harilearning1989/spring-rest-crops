@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: spring-rest-crop
+  namespace: spring-boot-examples
   labels:
     app: spring-rest-crop
 spec:
