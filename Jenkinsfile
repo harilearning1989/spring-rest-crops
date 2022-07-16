@@ -4,7 +4,8 @@ pipeline{
         	pollSCM '*/5 * * * *'
     	}
 	tools {
-		'org.jenkinsci.plugins.docker.commons.tools.DockerTool' '18.09'
+		echo "Tools"
+		//'org.jenkinsci.plugins.docker.commons.tools.DockerTool' '18.09'
 	}
      environment {
 		 FOO = "foo"
@@ -18,7 +19,7 @@ pipeline{
 		 grdlCmd = "${gradleHome}/bin/gradle"
 
 		 registry = "harilearning1989/spring-rest-crop"
-	     	DOCKER_CERT_PATH = credentials('id-for-a-docker-cred')
+	     	//DOCKER_CERT_PATH = credentials('id-for-a-docker-cred')
          registryCredential = 'DockerRegistry'
          dockerImage = ''
      }	
@@ -34,7 +35,7 @@ pipeline{
              }
           }
        }
-	stage('foo') {
+	stage('Docker') {
 		steps {
 			sh "docker version" // DOCKER_CERT_PATH is automatically picked up by the Docker client
 		}
