@@ -4,7 +4,7 @@ pipeline{
         	pollSCM '*/5 * * * *'
     	}
 	tools {
-		echo "Tools"
+		//echo "Tools"
 		//'org.jenkinsci.plugins.docker.commons.tools.DockerTool' '18.09'
 	}
      environment {
