@@ -1,6 +1,12 @@
 pipeline{
-     environment
-     {
+	agent any
+	triggers{
+        	pollSCM '*/5 * * * *'
+    	}
+	tools {
+		'org.jenkinsci.plugins.docker.commons.tools.DockerTool' '18.09'
+	}
+     environment {
 		 FOO = "foo"
 		 javaHome = tool name: 'JAVA_HOME', type: 'jdk'
 		 javaCMD = "${javaHome}/bin/java"
@@ -12,22 +18,14 @@ pipeline{
 		 grdlCmd = "${gradleHome}/bin/gradle"
 
 		 registry = "harilearning1989/spring-rest-crop"
+	     	DOCKER_CERT_PATH = credentials('id-for-a-docker-cred')
          registryCredential = 'DockerRegistry'
          dockerImage = ''
-     }
-    agent any
-	triggers
-	{
-        pollSCM '*/5 * * * *'
-    }
-    stages
-    {
-       stage('Gradle')
-       {
-          steps
-          {
-             withEnv(["JAVA_HOME=${tool 'JAVA_HOME'}", "PATH=${tool 'JAVA_HOME'}/bin:${env.PATH}"])
-             {
+     }	
+    stages{
+       stage('Gradle'){
+          steps{
+             withEnv(["JAVA_HOME=${tool 'JAVA_HOME'}", "PATH=${tool 'JAVA_HOME'}/bin:${env.PATH}"]){
                 git 'https://github.com/harilearning1989/spring-rest-crops.git'
                 sh 'java -version'
                 echo "Gradle"
@@ -36,6 +34,11 @@ pipeline{
              }
           }
        }
+	stage('foo') {
+		steps {
+			sh "docker version" // DOCKER_CERT_PATH is automatically picked up by the Docker client
+		}
+	}
        stage('Build Docker Image')
        {
           steps
