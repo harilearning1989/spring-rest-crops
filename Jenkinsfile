@@ -3,10 +3,10 @@ pipeline{
 	triggers{
         	pollSCM '*/5 * * * *'
     	}
-	tools {
+	//tools {
 		//echo "Tools"
 		//'org.jenkinsci.plugins.docker.commons.tools.DockerTool' '18.09'
-	}
+	//}
      environment {
 		 FOO = "foo"
 		 javaHome = tool name: 'JAVA_HOME', type: 'jdk'
