@@ -21,3 +21,4 @@ spec:
   selector:
     matchLabels:
       app: spring-rest-crop
+---

@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: spring-crop-config
+  namespace: spring-practiced
+data:
+  EMP_NAME: Hari From Kubernetes ConfigMap From Dev
+  EMP_DEPT: IT From Kubernetes ConfigMap From Dev
+  EMP_LASTNAME: Reddy From Kubernetes ConfigMap From Dev
+  EMP_FIRSTNAME: Duddukunta From Kubernetes ConfigMap From Dev
+  EMP_AGE: "33"

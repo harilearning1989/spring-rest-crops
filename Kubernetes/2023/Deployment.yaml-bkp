@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-crop-deploy
+  namespace: spring-practiced
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spring-rest-crop
+  template:
+    metadata:
+      labels:
+        app: spring-rest-crop
+    spec:
+      containers:
+      - name: spring-crop-cont
+        image: spring-rest-crops:8
+        ports:
+        - containerPort: 8081

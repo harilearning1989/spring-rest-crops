@@ -1,0 +1,23 @@
+#FROM adoptopenjdk/openjdk11:alpine-jre
+FROM centos:centos8
+
+RUN curl -O https://download.java.net/java/GA/jdk11/13/GPL/openjdk-11.0.1_linux-x64_bin.tar.gz
+RUN tar zxvf openjdk-11.0.1_linux-x64_bin.tar.gz
+RUN mv jdk-11.0.1 /usr/lib/jvm/
+#RUN yum -y install java-11-openjdk-devel
+#ENV JAVA_VERSION 11
+#ENV JAVA_HOME /usr/lib/jvm/java-11
+ENV JAVA_HOME /usr/lib/jvm/jdk-11.0.1
+RUN export JAVA_HOME
+
+#VOLUME /tmp
+MAINTAINER haritech.com
+ARG JAR_FILE=build/libs/spring-rest-crops.jar
+#WORKDIR /opt/app
+#COPY ${JAR_FILE} /var/lib/jenkins/workspace/spring-gradle-docker
+ADD ${JAR_FILE} spring-rest-crops.jar
+ENTRYPOINT ["java","-jar","spring-rest-crops.jar"]
+EXPOSE 8081
+#docker build --tag=spring-rest-crops .
+#docker image tag spring-rest-crops spring-rest-crops:1
+#docker run -d --restart=always -p 8081:8081 harilearning1989/spring-rest-oracle-demo
