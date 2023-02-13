@@ -45,7 +45,7 @@ pipeline{
                     nexusUrl: 'localhost:8081/repository/hari-practiced',
                     nexusVersion: 'nexus3',
                     protocol: 'http',
-                    repository: 'Releases',
+                    repository: 'http://localhost:8081/repository/hari-practiced',
                     version: '0.0.1-SNAPSHOT'
             }
        }
