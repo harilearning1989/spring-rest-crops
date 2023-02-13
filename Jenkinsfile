@@ -42,10 +42,10 @@ pipeline{
                     ],
                     credentialsId: 'Nexus3',
                     groupId: 'com.web.demo',
-                    nexusUrl: 'localhost:8081/repository/hari-practiced',
+                    nexusUrl: 'localhost:8081/',
                     nexusVersion: 'nexus3',
                     protocol: 'http',
-                    repository: 'http://localhost:8081/repository/hari-practiced',
+                    repository: 'http://localhost:8081/repository/hari-release',
                     version: '0.0.1-SNAPSHOT'
             }
        }
@@ -81,10 +81,10 @@ pipeline{
     }
 	post
 	{
-		always
-		{
-			echo 'this will run always'
-		}
+	    always {
+	        echo 'this will run success'
+            junit skipPublishingChecks: true, testResults: '**/cpputest_*.xml'
+        }
 		success
 		{
 			echo 'this will run success'
