@@ -38,15 +38,16 @@ pipeline{
                         artifactId: 'spring-rest-crops',
                         classifier: '',
                         file: 'build/libs/spring-rest-crops.jar',
-                        type: 'jar']
-                    ],
-                    credentialsId: 'Nexus3',
-                    groupId: 'com.web.demo',
-                    nexusUrl: 'localhost:8081/',
-                    nexusVersion: 'nexus3',
-                    protocol: 'http',
-                    repository: 'http://localhost:8081/repository/hari-release',
-                    version: '0.0.1-SNAPSHOT'
+                        type: 'jar'
+                    ]
+                ],
+                credentialsId: 'Nexus3',
+                groupId: 'com.web.demo',
+                nexusUrl: 'localhost:8081/',
+                nexusVersion: 'nexus3',
+                protocol: 'http',
+                repository: 'http://localhost:8081/repository/hari-release',
+                version: '0.0.1-SNAPSHOT'
             }
        }
 
