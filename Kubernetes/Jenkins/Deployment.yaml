@@ -1,0 +1,24 @@
+#docker pull jenkins:2.60.2
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jenkins-deploy
+  namespace: spring-practiced
+spec:
+  selector:
+    matchLabels:
+      app: jenkins-lbl
+  template:
+    metadata:
+      labels:
+        app: jenkins-lbl
+    spec:
+      containers:
+        - name: jenkins-container
+          image: jenkins:2.60.2
+          resources:
+            limits:
+              memory: "2048Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 8080
