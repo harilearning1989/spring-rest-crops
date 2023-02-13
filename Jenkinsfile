@@ -35,7 +35,7 @@ pipeline{
             steps{
                 nexusArtifactUploader artifacts: [
                     [
-                        artifactId: 'build/libs/spring-rest-crops.jar',
+                        artifactId: 'spring-rest-crops',
                         classifier: '',
                         file: 'build/libs/spring-rest-crops.jar',
                         type: 'jar']
