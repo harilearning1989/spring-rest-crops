@@ -31,10 +31,13 @@ pipeline{
           }
        }
        stage(){
+       steps{
+
             nexusArtifactUploader artifacts: [[artifactId: 'build/libs/spring-rest-crops.jar',
             classifier: '', file: 'build/libs/spring-rest-crops.jar', type: 'jar']],
             credentialsId: 'Nexus3', groupId: 'com.web.demo', nexusUrl: 'localhost:8090/',
             nexusVersion: 'nexus3', protocol: 'http', repository: 'Releases', version: '0.0.1-SNAPSHOT'
+            }
        }
 
        stage('compile')
