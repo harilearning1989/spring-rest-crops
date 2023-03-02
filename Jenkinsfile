@@ -30,7 +30,7 @@ pipeline{
              }
           }
        }
-
+/*
        stage('Upload War To Nexus'){
             steps{
                 nexusArtifactUploader artifacts: [
@@ -49,7 +49,7 @@ pipeline{
                 repository: 'http://localhost:8081/repository/hari-release',
                 version: '0.0.1-SNAPSHOT'
             }
-       }
+       }*/
 
        stage('compile')
        {
