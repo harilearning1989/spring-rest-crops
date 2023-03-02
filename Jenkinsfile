@@ -17,8 +17,8 @@ pipeline{
 	         mvnCmd = "${mvnHome}"
 
 		 gradleHome = tool name: 'GRADLE_HOME', type: 'gradle'
-		 //grdlCmd = "${gradleHome}/bin/gradle"
-	         grdlCmd = "${gradleHome}"
+		 grdlCmd = "${gradleHome}/bin/gradle"
+	         //grdlCmd = "${gradleHome}"
      }
     stages{
        stage('Gradle'){
