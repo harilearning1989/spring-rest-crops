@@ -13,10 +13,12 @@ pipeline{
 		 javaCMD = "${javaHome}/bin/java"
 
 		 mvnHome = tool name: 'MAVEN_HOME', type: 'maven'
-		 mvnCmd = "${mvnHome}/bin/mvn"
+		 //mvnCmd = "${mvnHome}/bin/mvn"
+	         mvnCmd = "${mvnHome}"
 
 		 gradleHome = tool name: 'GRADLE_HOME', type: 'gradle'
-		 grdlCmd = "${gradleHome}/bin/gradle"
+		 //grdlCmd = "${gradleHome}/bin/gradle"
+	         grdlCmd = "${gradleHome}"
      }
     stages{
        stage('Gradle'){
